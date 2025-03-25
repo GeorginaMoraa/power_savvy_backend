@@ -25,18 +25,18 @@ app.register_blueprint(device_bp, url_prefix='/api/device')
 app.register_blueprint(room_bp, url_prefix="/api/room")
 
 # WebSocket Events
-@socketio.on('connect')
-def handle_connect():
-    print("Client connected")
+# @socketio.on('connect')
+# def handle_connect():
+#     print("Client connected")
 
-@socketio.on('disconnect')
-def handle_disconnect():
-    print("Client disconnected")
+# @socketio.on('disconnect')
+# def handle_disconnect():
+#     print("Client disconnected")
 
-@socketio.on('alert')
-def handle_alert(data):
-    print(f"Alert received: {data}")
-    socketio.emit('notification', {"msg": "Energy alert!"})
+# @socketio.on('alert')
+# def handle_alert(data):
+#     print(f"Alert received: {data}")
+#     socketio.emit('notification', {"msg": "Energy alert!"})
 
 if __name__ == '__main__':
     socketio.run(app, debug=True)
