@@ -1,3 +1,4 @@
+import os
 from flask import Flask
 from flask_jwt_extended import JWTManager
 from config import Config
@@ -23,4 +24,5 @@ app.register_blueprint(device_bp, url_prefix='/api/device')
 app.register_blueprint(room_bp, url_prefix="/api/room")
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))  # Bind to the PORT environment variable or default to 5000
+    app.run(host='0.0.0.0', port=port, debug=True)
